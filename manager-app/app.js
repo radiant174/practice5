@@ -7,7 +7,9 @@ const statusInput = document.querySelector('#book-status');
 const searchInput = document.querySelector('#search-input');
 const tip = document.querySelector('#tip');
 const list = document.querySelector('#book-list');
-let books = [];
+let books = JSON.parse(localStorage.getItem('books') || '[]');
+
+const save = () => localStorage.setItem('books', JSON.stringify(books));
 
 const render = () => {
   list.innerHTML = '';
@@ -70,6 +72,7 @@ form.addEventListener('submit', (e) => {
 
   tip.textContent = '';
   form.reset();
+  save();
   render();
 });
 
@@ -80,6 +83,7 @@ list.addEventListener('click', (e) => {
 
   const id = Number(li.dataset.id);
   books = books.filter(book => book.id !== id);
+  save();
   render();
 });
 
