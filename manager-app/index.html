@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书收藏</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; max-width: 560px; margin: 24px auto; padding: 0 16px; }
+    form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    input, select { padding: 6px 8px; }
+    #book-title { flex: 1 1 150px; }
+    #book-author { flex: 1 1 120px; }
+    .tip { color: #c00; font-size: 14px; min-height: 20px; }
+    ul { list-style: none; padding: 0; }
+    li.book { display: flex; justify-content: space-between; align-items: center; gap: 8px; border-bottom: 1px solid #eee; padding: 8px 0; }
+    .empty-tip { color: #999; }
+  </style>
+</head>
+<body>
+  <h1>图书收藏</h1>
+
+  <form id="book-form">
+    <input type="text" id="book-title" placeholder="书名">
+    <input type="text" id="book-author" placeholder="作者">
+    <label>评分
+      <input type="number" id="book-rating" value="5">
+    </label>
+    <label>状态
+      <select id="book-status">
+        <option value="想读">想读</option>
+        <option value="在读">在读</option>
+        <option value="已读">已读</option>
+      </select>
+    </label>
+    <button type="submit">添加</button>
+  </form>
+
+  <p class="tip" id="tip"></p>
+  <ul id="book-list"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>
